@@ -23,7 +23,7 @@ class TestYoutubeAPIController
         $channel_id     = 'UCHGAqdQBKTVON_FUCIYCh3Q';
 
         try {
-            if ( !is_object( $api->getVideosForChannel( $channel_id ) ) )
+            if ( is_object( $api->getVideosForChannel( $channel_id ) ) )
             {
                 echo 'PASSED';
             }
