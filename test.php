@@ -11,3 +11,4 @@ require './YoutubeAPIController.php';
 
 $api = new YoutubeAPIController();
 
+echo $api->getVideosForChannel('channel_id');
