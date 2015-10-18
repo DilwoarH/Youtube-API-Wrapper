@@ -17,9 +17,27 @@ class TestYoutubeAPIController
 
     private function test_getVideosForChannel()
     {
+        echo '------------ test_getVideosForChannel -----------------<br/>';
+
         $api            = new YoutubeAPIController();
-        $channel_id     = $_GET['channel_id'];
-        echo json_encode( $api->getVideosForChannel( $channel_id ) );
+        $channel_id     = 'UCHGAqdQBKTVON_FUCIYCh3Q';
+
+        try {
+            if ( !is_object( $api->getVideosForChannel( $channel_id ) ) )
+            {
+                echo 'PASSED';
+            }
+            else
+            {
+                throw new Exception('Failed, not a valid response');
+            }
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+        echo '<br/>------------ end test_getVideosForChannel ------------<br/>';
+
+
     }
 
     public function run()
