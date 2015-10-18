@@ -1,6 +1,7 @@
 <?php
 
-require __DIR__ . '/config.php';
+require __DIR__ . '/Config.php';
+require __DIR__ . '/Utils.php';
 
 /**
  * Created by PhpStorm.
@@ -57,7 +58,7 @@ class YoutubeAPIController
         //remove last & from url
         $api_url    = rtrim( $api_url, '&');
 
-        return $api_url;
+        return Utils::http_get( $api_url );
 
     }
 

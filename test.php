@@ -9,6 +9,26 @@
 
 require './YoutubeAPIController.php';
 
-$api = new YoutubeAPIController();
 
-echo $api->getVideosForChannel('channel_id');
+
+
+class TestYoutubeAPIController
+{
+
+    private function test_getVideosForChannel()
+    {
+        $api            = new YoutubeAPIController();
+        $channel_id     = $_GET['channel_id'];
+        echo json_encode( $api->getVideosForChannel( $channel_id ) );
+    }
+
+    public function run()
+    {
+        $this->test_getVideosForChannel();
+    }
+
+}
+
+
+$tests = new TestYoutubeAPIController();
+$tests->run();
